@@ -47,15 +47,18 @@ export default function Archive({ isOpen, onClose, onSelectFact }: ArchiveProps)
             )}
           </div>
 
+          {/* Premium section hidden - will add back after a month */}
+          {/* 
           <div className="premium-section">
             <div className="premium-lock">🔒</div>
             <h3>OLDER FACTS (Premium)</h3>
-            <p>Want access to all {14} facts?</p>
+            <p>Want access to all facts?</p>
             <p className="premium-price">Unlock Archive for $1.99/month</p>
             <button className="premium-button btn-primary">
               🔓 Upgrade to Premium
             </button>
           </div>
+          */}
         </div>
       </div>
     </div>
