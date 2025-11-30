@@ -6,16 +6,12 @@ interface ActionButtonsProps {
   fact: Fact;
   gameState: GameState;
   onToggleFavorite: (newState: GameState) => void;
-  onStatsClick: () => void;
-  onArchiveClick: () => void;
 }
 
 export default function ActionButtons({ 
   fact, 
   gameState,
-  onToggleFavorite, 
-  onStatsClick,
-  onArchiveClick
+  onToggleFavorite
 }: ActionButtonsProps) {
   const isFavorite = gameState.favoriteFacts.includes(fact.id);
 
@@ -52,14 +48,6 @@ export default function ActionButtons({
           onClick={handleToggleFavorite}
         >
           {isFavorite ? '❤️' : '🤍'} {isFavorite ? 'Saved' : 'Save'}
-        </button>
-        
-        <button className="action-button stats-button" onClick={onStatsClick}>
-          📊 Stats
-        </button>
-        
-        <button className="action-button archive-button" onClick={onArchiveClick}>
-          📚 Archive
         </button>
       </div>
     </div>

@@ -1,9 +1,10 @@
-import { getStats } from '../utils/storage';
 import './Header.css';
 
-export default function Header() {
-  const stats = getStats();
+interface HeaderProps {
+  onArchiveClick: () => void;
+}
 
+export default function Header({ onArchiveClick }: HeaderProps) {
   return (
     <header className="header">
       <div className="header-content">
@@ -12,11 +13,11 @@ export default function Header() {
             DAILY TIL
           </h1>
           <p className="subtitle">Today I Learned</p>
-          {stats.currentStreak > 0 && (
-            <div className="streak">
-              🔥 {stats.currentStreak} day streak
-            </div>
-          )}
+        </div>
+        <div className="header-right">
+          <button onClick={onArchiveClick} className="header-icon-btn">
+            📚
+          </button>
         </div>
       </div>
     </header>

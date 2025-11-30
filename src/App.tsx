@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import type { GameState, Fact } from './types';
 import { getDailyFact } from './data/facts';
-import { loadGameState, saveGameState, isNewDay, updateStats, saveArchiveFact } from './utils/storage';
+import { loadGameState, saveGameState, isNewDay, saveArchiveFact } from './utils/storage';
 import Header from './components/Header';
 import FactDisplay from './components/FactDisplay';
 import ActionButtons from './components/ActionButtons';
-import Stats from './components/Stats';
 import Archive from './components/Archive';
 import './App.css';
 
@@ -20,7 +19,6 @@ function App() {
     favoriteFacts: []
   });
   const [loading, setLoading] = useState(true);
-  const [showStats, setShowStats] = useState(false);
   const [showArchive, setShowArchive] = useState(false);
   const [archiveMode, setArchiveMode] = useState(false);
 
@@ -82,9 +80,8 @@ function App() {
   const handleReadComplete = () => {
     if (!gameState.targetFact) return;
 
-    const updatedState = updateStats(gameState, !archiveMode);
     const newState = {
-      ...updatedState,
+      ...gameState,
       hasRead: true
     };
 
@@ -127,7 +124,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header />
+      <Header onArchiveClick={() => setShowArchive(true)} />
 
       <main className="main-content">
         {archiveMode && (
@@ -156,16 +153,9 @@ function App() {
             fact={gameState.targetFact}
             gameState={gameState}
             onToggleFavorite={handleToggleFavorite}
-            onStatsClick={() => setShowStats(true)}
-            onArchiveClick={() => setShowArchive(true)}
           />
         )}
       </main>
-
-      <Stats 
-        isOpen={showStats}
-        onClose={() => setShowStats(false)}
-      />
 
       <Archive
         isOpen={showArchive}
