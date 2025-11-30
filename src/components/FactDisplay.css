@@ -1,0 +1,204 @@
+.fact-display {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.fact-card {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.date-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.fact-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 1.5rem 0;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.fact-title-small {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 0 0 2rem 0;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.fact-meta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.category {
+  background: var(--surface);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.difficulty {
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+}
+
+.difficulty.easy {
+  background: var(--difficulty-easy);
+}
+
+.difficulty.medium {
+  background: var(--difficulty-medium);
+}
+
+.difficulty.hard {
+  background: var(--difficulty-hard);
+}
+
+.learn-button {
+  width: 100%;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  padding: 1rem 1.5rem;
+}
+
+/* Explanation sections */
+.explanation-section {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.explanation-header {
+  margin-bottom: 1rem;
+}
+
+.age-badge {
+  background: var(--primary);
+  color: white;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  display: inline-block;
+}
+
+.explanation-content {
+  color: var(--text-primary);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.explanation-content.scientific {
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.expand-button {
+  width: 100%;
+  background: white;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.2s ease;
+}
+
+.expand-button:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.2);
+}
+
+/* Fun fact section */
+.fun-fact-section {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  border-left: 4px solid var(--primary);
+}
+
+.fun-fact-header {
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.fun-fact-content {
+  color: var(--text-primary);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.fun-fact-source {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+.fun-fact-source a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.fun-fact-source a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .fact-display {
+    padding: 1.5rem 1rem;
+  }
+
+  .fact-card {
+    padding: 1.5rem;
+  }
+
+  .fact-title {
+    font-size: 1.5rem;
+  }
+
+  .fact-title-small {
+    font-size: 1.2rem;
+  }
+
+  .explanation-section {
+    padding: 1.25rem;
+  }
+
+  .fun-fact-section {
+    padding: 1.25rem;
+  }
+}
+
