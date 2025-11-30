@@ -94,13 +94,6 @@ function App() {
     }
   };
 
-  const handleToggleFavorite = (newState: GameState) => {
-    setGameState(newState);
-    if (!archiveMode) {
-      saveGameState(newState);
-    }
-  };
-
   const handleSelectArchiveFact = (fact: Fact) => {
     initGame(fact);
   };
@@ -151,8 +144,6 @@ function App() {
         {gameState.hasRead && (
           <ActionButtons
             fact={gameState.targetFact}
-            gameState={gameState}
-            onToggleFavorite={handleToggleFavorite}
           />
         )}
       </main>

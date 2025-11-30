@@ -1,20 +1,14 @@
-import type { Fact, GameState } from '../types';
-import { generateShareText, toggleFavorite } from '../utils/storage';
+import type { Fact } from '../types';
+import { generateShareText } from '../utils/storage';
 import './ActionButtons.css';
 
 interface ActionButtonsProps {
   fact: Fact;
-  gameState: GameState;
-  onToggleFavorite: (newState: GameState) => void;
 }
 
 export default function ActionButtons({ 
-  fact, 
-  gameState,
-  onToggleFavorite
+  fact
 }: ActionButtonsProps) {
-  const isFavorite = gameState.favoriteFacts.includes(fact.id);
-
   const handleShare = () => {
     const shareText = generateShareText(fact);
     
@@ -31,25 +25,11 @@ export default function ActionButtons({
     }
   };
 
-  const handleToggleFavorite = () => {
-    const newState = toggleFavorite(gameState, fact.id);
-    onToggleFavorite(newState);
-  };
-
   return (
     <div className="action-buttons">
       <button className="action-button share-button btn-primary" onClick={handleShare}>
         📤 Share This Fact
       </button>
-      
-      <div className="secondary-actions">
-        <button 
-          className={`action-button favorite-button ${isFavorite ? 'active' : ''}`}
-          onClick={handleToggleFavorite}
-        >
-          {isFavorite ? '❤️' : '🤍'} {isFavorite ? 'Saved' : 'Save'}
-        </button>
-      </div>
     </div>
   );
 }
