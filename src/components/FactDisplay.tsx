@@ -18,12 +18,6 @@ export default function FactDisplay({ fact, onReadComplete, hasRead }: FactDispl
     }
   };
 
-  const difficultyEmoji = {
-    easy: '⭐',
-    medium: '⭐⭐',
-    hard: '⭐⭐⭐'
-  };
-
   if (!hasRead) {
     // Initial view - show fact teaser
     return (
@@ -35,9 +29,6 @@ export default function FactDisplay({ fact, onReadComplete, hasRead }: FactDispl
           
           <div className="fact-meta">
             <span className="category">{fact.category}</span>
-            <span className={`difficulty ${fact.difficulty}`}>
-              {difficultyEmoji[fact.difficulty]} {fact.difficulty.charAt(0).toUpperCase() + fact.difficulty.slice(1)}
-            </span>
           </div>
 
           <button className="learn-button btn-primary" onClick={handleLearnWhy}>

@@ -41,9 +41,6 @@ export default function Archive({ isOpen, onClose, onSelectFact }: ArchiveProps)
             </div>
             <div className="archive-meta">
               <span className="archive-category">{yesterdayFact.category}</span>
-              <span className={`archive-difficulty ${yesterdayFact.difficulty}`}>
-                {yesterdayFact.difficulty.charAt(0).toUpperCase() + yesterdayFact.difficulty.slice(1)}
-              </span>
             </div>
             {yesterdayState?.hasRead && (
               <div className="archive-status">✓ Read</div>
