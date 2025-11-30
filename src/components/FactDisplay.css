@@ -105,14 +105,21 @@
 }
 
 .explanation-content {
-  color: var(--text-primary);
-  font-size: 1rem;
+  background: #fff7ed;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
   line-height: 1.7;
+  font-size: 1.05rem;
+  color: var(--text-primary);
 }
 
-.explanation-content.scientific {
-  font-size: 0.95rem;
-  line-height: 1.8;
+.explanation-content p {
+  margin: 0 0 1rem 0;
+}
+
+.explanation-content p:last-child {
+  margin-bottom: 0;
 }
 
 .expand-button {
