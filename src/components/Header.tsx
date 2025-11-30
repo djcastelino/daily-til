@@ -9,7 +9,7 @@ export default function Header() {
       <div className="header-content">
         <div className="header-center">
           <h1 className="title">
-            💡 DAILY TIL
+            DAILY TIL
           </h1>
           <p className="subtitle">Today I Learned</p>
           {stats.currentStreak > 0 && (
