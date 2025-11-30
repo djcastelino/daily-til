@@ -4,10 +4,12 @@ import './ActionButtons.css';
 
 interface ActionButtonsProps {
   fact: Fact;
+  onArchiveClick: () => void;
 }
 
 export default function ActionButtons({ 
-  fact
+  fact,
+  onArchiveClick
 }: ActionButtonsProps) {
   const handleShare = () => {
     const shareText = generateShareText(fact);
@@ -29,6 +31,9 @@ export default function ActionButtons({
     <div className="action-buttons">
       <button className="action-button share-button btn-primary" onClick={handleShare}>
         📤 Share This Fact
+      </button>
+      <button className="action-button archive-button" onClick={onArchiveClick}>
+        📚 Archive
       </button>
     </div>
   );

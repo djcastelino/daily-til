@@ -117,7 +117,7 @@ function App() {
 
   return (
     <div className="app">
-      <Header onArchiveClick={() => setShowArchive(true)} />
+      <Header />
 
       <main className="main-content">
         {archiveMode && (
@@ -144,6 +144,7 @@ function App() {
         {gameState.hasRead && (
           <ActionButtons
             fact={gameState.targetFact}
+            onArchiveClick={() => setShowArchive(true)}
           />
         )}
       </main>

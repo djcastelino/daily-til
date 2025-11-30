@@ -2,30 +2,21 @@
   max-width: 800px;
   margin: 2rem auto;
   padding: 0 1rem;
-}
-
-.share-button {
-  width: 100%;
-  margin-bottom: 1rem;
-  font-size: 1.05rem;
-  padding: 0.9rem 1.5rem;
-}
-
-.secondary-actions {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   gap: 0.75rem;
 }
 
 .action-button {
+  flex: 1;
   background: white;
   border: 2px solid var(--border);
   color: var(--text-primary);
-  padding: 0.7rem 1rem;
+  padding: 0.9rem 1.5rem;
   border-radius: 8px;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 1rem;
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .action-button:hover {
@@ -35,10 +26,16 @@
   box-shadow: 0 4px 12px rgba(249, 115, 22, 0.1);
 }
 
-.favorite-button.active {
-  background: var(--surface);
-  border-color: var(--primary);
-  color: var(--primary);
+.share-button {
+  background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+  color: white;
+  border: none;
+}
+
+.share-button:hover {
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(249, 115, 22, 0.3);
 }
 
 @media (max-width: 768px) {
