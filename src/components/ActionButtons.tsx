@@ -5,14 +5,21 @@ import './ActionButtons.css';
 interface ActionButtonsProps {
   fact: Fact;
   onArchiveClick: () => void;
+  onShare?: () => void;
 }
 
 export default function ActionButtons({ 
   fact,
-  onArchiveClick
+  onArchiveClick,
+  onShare
 }: ActionButtonsProps) {
   const handleShare = () => {
     const shareText = generateShareText(fact);
+    
+    // Track share event
+    if (onShare) {
+      onShare();
+    }
     
     if (navigator.share) {
       navigator.share({

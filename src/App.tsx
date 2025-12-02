@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import type { GameState, Fact } from './types';
 import { getDailyFact } from './data/facts';
 import { loadGameState, saveGameState, isNewDay, saveArchiveFact } from './utils/storage';
+import { initGA, trackPageView, trackFactView, trackShare, trackArchiveView, trackArchiveFact } from './utils/analytics';
 import Header from './components/Header';
 import FactDisplay from './components/FactDisplay';
 import ActionButtons from './components/ActionButtons';
@@ -23,6 +24,10 @@ function App() {
   const [archiveMode, setArchiveMode] = useState(false);
 
   useEffect(() => {
+    // Initialize Google Analytics
+    initGA();
+    trackPageView(window.location.pathname);
+    
     initGame();
   }, []);
 
@@ -55,6 +60,10 @@ function App() {
 
       if (shouldStartNewDay) {
         const dailyFact = getDailyFact();
+        
+        // Track fact view
+        trackFactView(dailyFact.title, dailyFact.category);
+        
         const newState: GameState = {
           targetFact: dailyFact,
           hasRead: false,
@@ -95,6 +104,7 @@ function App() {
   };
 
   const handleSelectArchiveFact = (fact: Fact) => {
+    trackArchiveFact(fact.id);
     initGame(fact);
   };
 
@@ -144,7 +154,11 @@ function App() {
         {gameState.hasRead && (
           <ActionButtons
             fact={gameState.targetFact}
-            onArchiveClick={() => setShowArchive(true)}
+            onArchiveClick={() => {
+              trackArchiveView();
+              setShowArchive(true);
+            }}
+            onShare={() => gameState.targetFact && trackShare(gameState.targetFact.title)}
           />
         )}
       </main>
