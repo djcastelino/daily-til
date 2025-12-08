@@ -1,6 +1,6 @@
 import ReactGA from 'react-ga4';
 
-const MEASUREMENT_ID = 'G-PEQV4VLYTY';
+const MEASUREMENT_ID = 'G-LZK7E0M28S';
 
 // Initialize Google Analytics
 export const initGA = () => {
@@ -55,4 +55,5 @@ export const trackArchiveFact = (factNumber: number) => {
     value: factNumber,
   });
 };
+
 
