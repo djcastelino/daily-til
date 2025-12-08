@@ -62,7 +62,7 @@ function App() {
         const dailyFact = getDailyFact();
         
         // Track fact view
-        trackFactView(dailyFact.title, dailyFact.category);
+        trackFactView(dailyFact.fact, dailyFact.category);
         
         const newState: GameState = {
           targetFact: dailyFact,
@@ -158,7 +158,7 @@ function App() {
               trackArchiveView();
               setShowArchive(true);
             }}
-            onShare={() => gameState.targetFact && trackShare(gameState.targetFact.title)}
+            onShare={() => gameState.targetFact && trackShare(gameState.targetFact.fact)}
           />
         )}
       </main>
